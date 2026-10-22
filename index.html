@@ -1,1 +1,266 @@
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>For Laxmi ♡</title>
+<style>
+*{box-sizing:border-box}
+:root{--pink:#ff80a8;--rose:#bd527b;--cream:#fff8f1;--ink:#684354}
+body{margin:0;font-family:Georgia,serif;color:var(--ink);background:linear-gradient(145deg,#fff6f9,#f3eaff);min-height:100vh;overflow-x:hidden}
+button{font:inherit;cursor:pointer;border:0}
+button:focus-visible{outline:3px solid #8953aa;outline-offset:3px}
+.page{display:none;min-height:100vh;padding:25px 14px;align-items:center;justify-content:center}
+.page.active{display:flex;animation:appear .55s ease}
+.card{width:min(720px,100%);padding:clamp(22px,5vw,42px);text-align:center;background:#ffffffdf;border:1px solid #f5c8d9;border-radius:28px;box-shadow:0 20px 55px #9e4c701c}
+@keyframes appear{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
+h1{font-size:clamp(2.5rem,9vw,4.5rem);line-height:1.05;color:#a44670;font-weight:normal;margin:15px 0}
+h2{font-size:clamp(1.8rem,6vw,2.8rem);font-weight:normal;color:#a44670;margin:12px 0 20px}
+p{font-size:clamp(1rem,3.5vw,1.17rem);line-height:1.75}
+.kicker{font:700 .75rem system-ui;letter-spacing:.18em;text-transform:uppercase;color:#bb6488}
+.emoji{display:block;font-size:clamp(3rem,12vw,5.5rem);margin:12px;animation:bob 2.4s infinite ease-in-out}
+@keyframes bob{50%{transform:translateY(-8px) rotate(2deg)}}
+.btns{display:flex;justify-content:center;gap:11px;flex-wrap:wrap;margin-top:24px}
+.btn{padding:13px 20px;border-radius:99px;background:linear-gradient(135deg,#ff91b3,#df6596);color:white;box-shadow:0 7px 18px #d65d8b25;transition:.2s}
+.btn:hover{transform:translateY(-3px)}
+.btn.alt{background:#fff;color:#a44670;border:1px solid #efbbce;box-shadow:none}
+.small{font: .85rem/1.6 system-ui;color:#a77a8d}
+.heart{color:#ef6598;animation:beat 1.4s infinite}
+@keyframes beat{50%{transform:scale(1.08)}}
+#cake{position:relative;width:220px;height:205px;margin:15px auto;cursor:pointer}
+.plate{position:absolute;bottom:20px;left:5px;width:210px;height:20px;border-radius:50%;background:#e9c5d2}
+.base{position:absolute;bottom:38px;left:25px;width:170px;height:77px;background:linear-gradient(90deg,#f09ab8,#ffd7e2,#e982a6);border-radius:12px 12px 18px 18px;box-shadow:inset 0 -8px #dc7199}
+.icing{position:absolute;bottom:102px;left:25px;width:170px;height:33px;border-radius:50%;background:#fff0f4;border:3px solid #f5c0d1}
+.candle{position:absolute;bottom:130px;left:105px;width:12px;height:38px;background:repeating-linear-gradient(135deg,#fff 0 5px,#baa1ed 5px 10px);border-radius:4px}
+.flame{position:absolute;bottom:165px;left:104px;width:15px;height:23px;background:linear-gradient(#fff4a3,#ff9c42,#ff675d);border-radius:70% 25% 70% 30%;transform:rotate(45deg);animation:flicker .4s infinite alternate}
+@keyframes flicker{to{transform:rotate(35deg) scale(.9)}}
+.blown .flame{display:none}
+.options{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;margin-top:22px}
+.option{padding:15px 12px;border:1px solid #f1bfd2;border-radius:16px;background:#fff;color:#81506a}
+.option:hover{background:#fff0f6}
+.option:disabled{opacity:.75}
+.progress{height:7px;background:#f4dbe5;border-radius:10px;margin:15px 0;overflow:hidden}
+.progress div{height:100%;width:0;background:#e984ad;transition:width .3s}
+.gifts{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:10px;margin:24px 0}
+.gift{min-height:90px;border-radius:17px;background:linear-gradient(140deg,#ff9fbd,#df6a9a);color:white;font-size:2rem;transition:.25s}
+.gift:hover{transform:translateY(-4px) rotate(-3deg)}
+.gift.gone{visibility:hidden;opacity:0}
+.note{padding:17px;border:1px dashed #e3a6bf;border-radius:15px;background:#fff5f8;line-height:1.65;min-height:65px}
+.game{position:relative;height:280px;overflow:hidden;background:linear-gradient(#fff7fb,#f1eaff);border:2px solid #f2c9da;border-radius:20px;margin:18px 0;touch-action:manipulation}
+.item{position:absolute;font-size:28px;padding:0;background:transparent}
+.letter{background:#fff7e8;border:1px solid #e6cda5;padding:clamp(22px,5vw,45px);text-align:left;position:relative}
+.letter h2{text-align:center;color:#91634b}
+.letter p{color:#634c40}
+.signature{text-align:right;font-style:italic;color:#a05b70;font-size:1.2rem}
+.fall{position:fixed;z-index:10;pointer-events:none;animation:fall 3.5s linear forwards}
+@keyframes fall{from{transform:translateY(-30px) rotate(0);opacity:1}to{transform:translateY(110vh) rotate(320deg);opacity:0}}
+@media(max-width:480px){.options{grid-template-columns:1fr}.gifts{grid-template-columns:repeat(3,1fr)}.gift{min-height:75px}}
+@media(prefers-reduced-motion:reduce){*,*:before,*:after{animation-duration:.01ms!important;transition-duration:.01ms!important}}
+</style>
+</head>
+<body>
+
+<section class="page active" id="welcome">
+<div class="card">
+<span class="kicker">a tiny world made for you</span>
+<span class="emoji">🎀💌🎂</span>
+<h1>Hey, Laxmi!</h1>
+<p>Someone made a little birthday world just for you. There are surprises, tiny games and a letter waiting at the end. ♡</p>
+<p>Made especially for you, from Srinu 💗</p>
+<div class="btns"><button class="btn" data-go="wishes">Start the Surprise ✨</button></div>
+</div>
+</section>
+
+<section class="page" id="wishes">
+<div class="card">
+<span class="emoji">🌷🧸💗</span><span class="kicker">today is all about you</span>
+<h1>Happy Birthday,<br>Laxmi! ♡</h1>
+<p>May your days be full of little joys, unexpected laughs, beautiful memories and people who make you feel appreciated. May this new year bring you happiness that stays long after the candles are gone.</p>
+<p class="heart">୨୧ lots of smiles, always ୨୧</p>
+<div class="btns"><button class="btn" data-go="cakePage">There's a cake! 🎂</button><button class="btn alt" data-go="welcome">Back</button></div>
+</div>
+</section>
+
+<section class="page" id="cakePage">
+<div class="card">
+<span class="kicker">make a little wish</span><h2>A cake just for you 🎂</h2>
+<p>Tap the cake to blow out the candle. Make a wish first! ✨</p>
+<div id="cake" role="button" tabindex="0" aria-label="Blow out candle">
+<div class="plate"></div><div class="base"></div><div class="icing"></div><div class="candle"></div><div class="flame"></div>
+</div>
+<p id="cakeMsg">One tiny tap, one big wish. 💫</p>
+<div class="btns"><button class="btn" data-go="choice">Continue ♡</button><button class="btn alt" data-go="wishes">Back</button></div>
+</div>
+</section>
+
+<section class="page" id="choice">
+<div class="card"><span class="emoji">🪄🎁</span><h2>Hey Laxmi, what would u choose?</h2>
+<p>Two doors, one birthday girl. You decide what happens next. 👀</p>
+<div class="btns"><button class="btn" data-go="quizIntro">Do the Akinator Quiz 🧠</button><button class="btn" data-go="gifts">I Want to Open Gifts 🎁</button></div>
+<div class="btns"><button class="btn alt" data-go="cakePage">Back to cake</button></div>
+</div>
+</section>
+
+<section class="page" id="quizIntro">
+<div class="card"><span class="emoji">🔮💭</span><h2>The Laxmi x Srinu Quiz</h2>
+<p>A fun little quiz about friendship, memories and your birthday surprises. No wrong answers here. 💗</p>
+<div class="btns"><button class="btn" id="startQuiz">Let's find out! ✨</button><button class="btn alt" data-go="choice">Go back</button></div>
+</div>
+</section>
+
+<section class="page" id="quiz">
+<div class="card"><span class="kicker" id="qCount">question 1</span><div class="progress"><div id="qProgress"></div></div>
+<h2 id="qText"></h2><div class="options" id="qOptions"></div><p id="qFeedback" aria-live="polite"></p>
+<div class="btns"><button class="btn alt" data-go="choice">Back to choices</button></div>
+</div>
+</section>
+
+<section class="page" id="quizEnd">
+<div class="card"><span class="emoji">💞✨</span><h2>Quiz complete!</h2>
+<p id="quizResult">The best answers are the memories you make together. ♡</p>
+<div class="btns"><button class="btn" data-go="gifts">Now open your gifts 🎁</button><button class="btn alt" id="replayQuiz">Play again</button><button class="btn alt" data-go="choice">Back to choices</button></div>
+</div>
+</section>
+
+<section class="page" id="gifts">
+<div class="card"><span class="kicker">the gift corner</span><h2>Five little surprises 🎁</h2>
+<p>Tap each gift. Two are cheeky ghost gifts… three have something real inside. 👻</p>
+<div class="gifts">
+<button class="gift" data-gift="0">🎁</button><button class="gift" data-gift="1">🎁</button><button class="gift" data-gift="2">🎁</button><button class="gift" data-gift="3">🎁</button><button class="gift" data-gift="4">🎁</button>
+</div>
+<div class="note" id="giftNote" aria-live="polite">Your surprises are hiding in plain sight. Pick a gift! 💗</div>
+<div class="btns"><button class="btn" data-go="heartGame">Catch the hearts 💕</button><button class="btn alt" data-go="choice">Back to choices</button></div>
+</div>
+</section>
+
+<section class="page" id="heartGame">
+<div class="card"><span class="kicker">mini game 01</span><h2>Catch the hearts! 💗</h2>
+<p>Tap as many hearts as you can in 15 seconds!</p><p id="heartStatus">Score: 0 · Time: 15s</p><div class="game" id="heartArea"></div>
+<div class="btns"><button class="btn" id="startHearts">Start game ▶</button><button class="btn alt" data-go="gifts">Back to gifts</button><button class="btn alt" data-go="bombGame">Next game 💣</button></div>
+</div>
+</section>
+
+<section class="page" id="bombGame">
+<div class="card"><span class="kicker">mini game 02</span><h2>Dodge the bombs! 💣</h2>
+<p>Tap hearts for points, but avoid bombs! You have 15 seconds.</p><p id="bombStatus">Score: 0 · Time: 15s</p><div class="game" id="bombArea"></div>
+<div class="btns"><button class="btn" id="startBombs">Start game ▶</button><button class="btn alt" data-go="heartGame">Previous game</button><button class="btn alt" data-go="letter">Read your letter 💌</button></div>
+</div>
+</section>
+
+<section class="page" id="letter">
+<div class="card letter">
+<div style="text-align:center;font-size:2rem">✧･ﾟ: *✧･ﾟ:* 💌 *:･ﾟ✧*:･ﾟ✧</div>
+<span class="kicker" style="display:block;text-align:center">a little letter, kept safe here</span>
+<h2>For Laxmi ♡</h2>
+<p>Hey Laxmi,</p>
+<p>That day when we were drawing and ended up having such a long conversation? I still remember it. I wish there could be more days like that, because somehow, even an ordinary day feels special when I get to share a little part of it with you.</p>
+<p>I don't expect you to do anything special. I just wanted you to know that the little moments we share genuinely mean something to me. 🥹💕</p>
+<p>I hope we get to talk more, even outside school, and make more small memories that we can look back on and smile about. No pressure, no big expectations — just more conversations, more laughter, and more of those random moments that become special without even trying.</p>
+<p>Keep being you, keep smiling, and may this new year of your life bring you the kind of happiness that stays long after the birthday candles are gone.</p>
+<p>And if you ever want to find me on Pinterest, I'm here: <strong>Srinu_XD</strong> ✨</p>
+<p class="signature">— Srinu ♡</p>
+<div style="text-align:center;font-size:1.5rem">❦ ❦ ❦</div>
+<div class="btns"><button class="btn" data-go="finale">One last thing… ✨</button><button class="btn alt" data-go="gifts">Back to gifts</button></div>
+</div>
+</section>
+
+<section class="page" id="finale">
+<div class="card"><span class="emoji">🌙💐💗</span><span class="kicker">the last page</span>
+<h1>That's your little world.</h1>
+<p>I hope it made you smile, even for a tiny second. Some gifts are things you can hold; some are moments someone took time to make for you.</p>
+<p class="heart">Happy Birthday, Laxmi. Stay wonderful. ♡</p>
+<div class="btns"><button class="btn" id="celebrateAgain">Celebrate again 🎉</button><button class="btn alt" data-go="letter">Read the letter again 💌</button><button class="btn alt" data-go="welcome">Start from beginning ↺</button></div>
+<p class="small">Made with care by Srinu ♡</p>
+</div>
+</section>
+
+<script>
+(()=>{
+const pages=[...document.querySelectorAll('.page')];
+const gameIntervals={hearts:null,bombs:null},gameTimeouts={hearts:null,bombs:null};
+function stopGame(k){clearInterval(gameIntervals[k]);clearTimeout(gameTimeouts[k]);gameIntervals[k]=null;gameTimeouts[k]=null}
+function go(id){
+if(!document.getElementById(id))return;
+stopGame('hearts');stopGame('bombs');
+pages.forEach(p=>p.classList.toggle('active',p.id===id));
+window.scrollTo({top:0,behavior:'smooth'});
+}
+document.querySelectorAll('[data-go]').forEach(b=>b.addEventListener('click',()=>go(b.dataset.go)));
+function confetti(n=25,emojis=['🌸','✨','💗','🌷']){
+for(let i=0;i<n;i++){let e=document.createElement('span');e.className='fall';e.textContent=emojis[Math.random()*emojis.length|0];e.style.left=Math.random()*100+'vw';e.style.top='-35px';e.style.fontSize=16+Math.random()*17+'px';e.style.animationDuration=2.5+Math.random()*2+'s';document.body.appendChild(e);setTimeout(()=>e.remove(),5000)}
+}
+document.getElementById('cake').addEventListener('click',blow);
+document.getElementById('cake').addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();blow()}});
+function blow(){
+const cake=document.getElementById('cake');cake.classList.toggle('blown');
+const blown=cake.classList.contains('blown');
+document.getElementById('cakeMsg').textContent=blown?'Wish made? 🌠 May something lovely find its way to you!':'The candle is back! Make another wish. 💫';
+if(blown){confetti(60,['🌸','🌼','✨','🌷','💖','🎉']);tinyTune()}
+}
+function tinyTune(){
+try{const AC=window.AudioContext||window.webkitAudioContext;if(!AC)return;const c=new AC(),notes=[523,659,784,659,698,784,880,784,659,523];notes.forEach((f,i)=>{let o=c.createOscillator(),g=c.createGain();o.frequency.value=f;o.type='sine';g.gain.setValueAtTime(.0001,c.currentTime+i*.19);g.gain.exponentialRampToValueAtTime(.06,c.currentTime+i*.19+.03);g.gain.exponentialRampToValueAtTime(.0001,c.currentTime+i*.19+.17);o.connect(g);g.connect(c.destination);o.start(c.currentTime+i*.19);o.stop(c.currentTime+i*.19+.18)});setTimeout(()=>c.close(),2500)}catch(e){}
+}
+const questions=[
+{q:"What would Srinu probably choose on a free day? 👀",a:["Drawing anime ✍️","Sleeping all day 😴","Annoying Laxmi 😂","All of the above 💀"]},
+{q:"Which memory deserves a replay? 🎨",a:["That long conversation while drawing 🥹","Random school moments 🏫","Laughing over silly things 😂","Every little moment 💗"]},
+{q:"What makes a friendship special? 🌷",a:["Talking every second","Being there for each other","Expensive gifts","Making memories together 💕"]},
+{q:"What should Srinu and Laxmi do more often? ✨",a:["Talk more, even outside school 💬","Draw together 🎨","Share funny things 😂","Everything on this list 🫶"]},
+{q:"Final question, Laxmi! Ready for your gifts? 🎁",a:["YESSS, OPEN THEM! 💖","One more question 😭","I want a hint 👀","Srinu, surprise me! 🥹"]}
+];
+let qi=0;
+const qText=document.getElementById('qText'),qOptions=document.getElementById('qOptions');
+function renderQuestion(){
+const q=questions[qi];document.getElementById('qCount').textContent=`question ${qi+1} of ${questions.length}`;
+document.getElementById('qProgress').style.width=qi/questions.length*100+'%';
+qText.textContent=q.q;qOptions.innerHTML='';document.getElementById('qFeedback').textContent='';
+q.a.forEach((answer,i)=>{const b=document.createElement('button');b.className='option';b.textContent=answer;b.addEventListener('click',()=>{
+[...qOptions.children].forEach(x=>x.disabled=true);b.style.background='#fce0eb';
+document.getElementById('qFeedback').textContent=['Ooo, interesting choice! ✨','Aww, a memory worth keeping. 💗','Noted, birthday girl! 🌷','Okayyy, I see you! 😂'][i];
+setTimeout(()=>{qi++;if(qi<questions.length)renderQuestion();else{document.getElementById('qProgress').style.width='100%';document.getElementById('quizResult').textContent='You finished all '+questions.length+' questions! The real prize is all the little memories still waiting to happen. 💗';go('quizEnd');confetti(35)}},650);
+});qOptions.appendChild(b)});
+}
+document.getElementById('startQuiz').addEventListener('click',()=>{qi=0;renderQuestion();go('quiz')});
+document.getElementById('replayQuiz').addEventListener('click',()=>{qi=0;renderQuestion();go('quiz')});
+
+const giftMessages=[
+'GHOST GIFT! 👻 It vanished before you could catch it. The gift was… absolutely nothing 😂',
+'A pocketful of happy moments 💗 — may you find a reason to smile even on ordinary days.',
+'ANOTHER GHOST GIFT 👻 Gotcha! This box contains 100% imaginary glitter. ✨',
+'A tiny wish 🌷 — may this year bring you peace, courage, fun surprises and kind people.',
+'The biggest gift is this reminder: your small moments with people can mean more than you know. 🥹💕'
+];
+const opened=new Set();
+document.querySelectorAll('[data-gift]').forEach(b=>b.addEventListener('click',()=>{
+const i=Number(b.dataset.gift);if(opened.has(i))return;opened.add(i);
+document.getElementById('giftNote').textContent=giftMessages[i];
+if(i===0||i===2){b.classList.add('gone');confetti(14,['👻','💨','✨'])}
+else{b.textContent={1:'🎀',3:'🌷',4:'💌'}[i];b.disabled=true;confetti(12,['💗','✨','🌸'])}
+if(opened.size===5)document.getElementById('giftNote').textContent+=' All five opened! Head to the mini-games whenever you are ready. 🎉';
+}));
+document.getElementById('celebrateAgain').addEventListener('click',()=>{confetti(65,['🎉','💗','🌸','✨','🌷']);go('welcome')});
+
+function startGame(kind){
+const hearts=kind==='hearts',key=kind,area=document.getElementById(hearts?'heartArea':'bombArea');
+stopGame(key);area.innerHTML='';let score=0,time=15,ended=false;
+const status=document.getElementById(hearts?'heartStatus':'bombStatus'),start=document.getElementById(hearts?'startHearts':'startBombs');
+start.disabled=true;start.textContent='Playing…';
+const update=()=>status.textContent=`Score: ${score} · Time: ${time}s`;
+function spawn(){
+if(ended)return;
+const b=document.createElement('button');b.className='item';
+const bomb=!hearts&&Math.random()<.38;b.textContent=bomb?'💣':'💗';
+b.style.left=Math.random()*88+'%';b.style.top=Math.random()*78+'%';
+b.addEventListener('click',()=>{if(ended)return;if(bomb){score=Math.max(0,score-3);b.textContent='💥'}else{score++;b.textContent='✨'}update();b.disabled=true;setTimeout(()=>b.remove(),140)});
+area.appendChild(b);setTimeout(()=>b.remove(),1100);
+}
+spawn();gameIntervals[key]=setInterval(spawn,hearts?650:550);
+gameTimeouts[key]=setInterval(()=>{time--;update();if(time<=0){ended=true;stopGame(key);area.querySelectorAll('button').forEach(b=>b.disabled=true);status.textContent=`Time's up! Final score: ${score} — ${score>=10?'amazing reflexes!':'nice try!'} Play again?`;start.disabled=false;start.textContent='Play again ↻';confetti(18,['💗','✨','🌸'])}},1000);
+}
+document.getElementById('startHearts').addEventListener('click',()=>startGame('hearts'));
+document.getElementById('startBombs').addEventListener('click',()=>startGame('bombs'));
+})();
+</script>
+</body>
+</html>
+
