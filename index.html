@@ -1,0 +1,174 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Laxmi's Secret Gift World 💌</title>
+<style>
+*{box-sizing:border-box}
+body{margin:0;background:#07142e;color:white;font-family:Arial,sans-serif;text-align:center}
+main{max-width:560px;margin:auto;padding:20px 15px}
+.page{display:none;min-height:92vh;align-content:center;animation:appear .35s ease}
+.page.active{display:block}
+h1{color:#ffc4df;font-size:clamp(27px,7vw,37px)}
+p{line-height:1.8;color:#e8eaf8}
+button{border:0;border-radius:24px;padding:13px 16px;margin:6px;background:#ffc4df;color:#32152e;font-size:15px;font-weight:bold;cursor:pointer}
+button:active{transform:scale(.96)}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:20px 0}
+.gift{background:#15274b;border:1px solid #607096;border-radius:18px;padding:18px 5px;font-size:44px;cursor:pointer}
+.gift p{font-size:14px;margin:8px 0}
+.panel{background:#142649;border:1px solid #34476f;border-radius:20px;padding:18px;margin:12px 0}
+#letter{background:#f3e5c9;color:#493729;text-align:left;padding:22px;border-radius:8px;font-family:Georgia,serif;line-height:1.9;box-shadow:0 5px 20px #0005}
+#letter p{color:#493729}
+#arena{height:330px;position:relative;overflow:hidden;background:#102344;border:1px solid #40577f;border-radius:18px;margin:16px 0;touch-action:manipulation}
+.item{position:absolute;padding:4px;background:transparent;color:white;border:0;font-size:29px}
+#shade{position:fixed;inset:0;background:#0004;display:none;align-items:center;justify-content:center;padding:20px;z-index:10}
+#modal{background:#17294d;border:1px solid #ffbddb;border-radius:20px;padding:22px;max-width:360px;width:100%;box-shadow:0 8px 30px #0008}
+#modal h2{color:#ffc4df}
+@keyframes appear{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
+</style>
+</head>
+<body>
+<main>
+<section id="gifts" class="page active">
+<h1>Welcome to Your Gift World 🎁</h1>
+<p>Four little boxes, little memories, and one letter from Srinu. 💗</p>
+<div class="grid">
+<button class="gift" onclick="chooseGift(0)">🎁<p>Gift One</p></button>
+<button class="gift" onclick="chooseGift(1)">🎀<p>Gift Two</p></button>
+<button class="gift" onclick="chooseGift(2)">💝<p>Gift Three</p></button>
+<button class="gift" onclick="chooseGift(3)">💌<p>Gift Four</p></button>
+</div>
+<button onclick="openLetter()">Read My Letter 💌</button>
+<button onclick="startGame('heart')">Catch the Falling Hearts 💗</button>
+<button onclick="startGame('bomb')">Dodge the Bombs 💣</button>
+<button onclick="goBirthday()">Back to Birthday 🎂</button>
+</section>
+
+<section id="message" class="page">
+<div style="font-size:65px">🎁</div>
+<h1 id="messageTitle">A Little Surprise</h1>
+<div class="panel"><p id="messageText"></p></div>
+<button onclick="startGame('heart')">Play Catch the Hearts 💗</button>
+<button onclick="startGame('bomb')">Play Dodge the Bombs 💣</button>
+<button onclick="show('gifts')">Return to Gifts 🎁</button>
+<button onclick="openLetter()">Open the Letter 💌</button>
+</section>
+
+<section id="letterPage" class="page">
+<h1>A Letter for You 🌙</h1>
+<div id="letter">
+<p>Dear Laxmi,</p>
+<p>That day when we were drawing and ended up having such a long conversation? I still remember it. I wish there could be more days like that, because somehow, even an ordinary day feels special when I get to share a little part of it with you.</p>
+<p>I don't expect you to do anything special. I just wanted you to know that the little moments we share genuinely mean something to me. 🥹💕</p>
+<p>I hope this new year of your life brings you peaceful days, genuine smiles, beautiful memories, and people who appreciate the person you are. Even the smallest moments can become memories we carry for a long time.</p>
+<p>Thank you for being part of those little moments. I hope your birthday brings you many more reasons to smile. Happy Birthday, Laxmi. Keep being yourself. ♡</p>
+<p>With warm wishes,<br>— Srinu ♡</p>
+</div>
+<button onclick="show('gifts')">Return to Gifts 🎁</button>
+<button onclick="startGame('heart')">One Little Game? 💗</button>
+</section>
+
+<section id="game" class="page">
+<h1 id="gameTitle">Catch the Falling Hearts 💗</h1>
+<p id="instructions">Tap hearts to collect points.</p>
+<div class="panel">Score: <strong id="score">0</strong> · Time: <strong id="time">15</strong>s</div>
+<div id="arena"></div>
+<button onclick="startGame(currentGame)">Try Again ↻</button>
+<button onclick="show('gifts')">Return to Gifts 🎁</button>
+</section>
+
+<section id="over" class="page">
+<div style="font-size:60px">💗</div>
+<h1>Game Over!</h1>
+<p id="overText">Every try counts. Want another go?</p>
+<button onclick="startGame(currentGame)">Try Again ↻</button>
+<button onclick="show('gifts')">Return to Gifts 🎁</button>
+</section>
+</main>
+
+<div id="shade">
+<div id="modal">
+<h2 id="modalTitle">A little message 💖</h2>
+<p id="modalText"></p>
+<button onclick="closeModal()">Continue ✨</button>
+</div>
+</div>
+
+<script>
+const $=id=>document.getElementById(id);
+function show(id){
+ stopTimers();
+ $('shade').style.display='none';
+ document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
+ $(id).classList.add('active');
+}
+function goBirthday(){
+ location.href='https://srinivasy3108-dev.github.io/laxmi-birthday-surprise-/';
+}
+function popup(title,text){
+ $('modalTitle').textContent=title;$('modalText').textContent=text;
+ $('shade').style.display='flex';
+}
+function closeModal(){$('shade').style.display='none'}
+function chooseGift(i){
+ const titles=['One Little Surprise 🎁','Oops, Not This One 🎀','A Memory to Keep 💝','A Letter for You 💌'];
+ const texts=[
+ 'Sorry, I am not the first one. Go to another gift! 💗',
+ 'Sorry, I chose the wrong one. Try another gift! 🌸',
+ 'Some memories may seem small, but they can mean a lot. Thank you for sharing those little moments. 💖',
+ 'The last surprise is a letter written especially for you. 💌'
+ ];
+ $('messageTitle').textContent=titles[i];$('messageText').textContent=texts[i];
+ show('message');
+}
+function openLetter(){show('letterPage')}
+let currentGame='heart',score=0,time=15,spawnTimer=null,clockTimer=null,gameActive=false;
+function stopTimers(){
+ gameActive=false;
+ clearInterval(spawnTimer);clearInterval(clockTimer);
+ spawnTimer=null;clockTimer=null;
+}
+function startGame(type){
+ stopTimers();currentGame=type;score=0;time=15;gameActive=true;
+ $('score').textContent=score;$('time').textContent=time;$('arena').innerHTML='';
+ $('gameTitle').textContent=type==='heart'?'Catch the Falling Hearts 💗':'Dodge the Bombs 💣';
+ $('instructions').textContent=type==='heart'?'Tap each heart before it disappears!':'Avoid bombs! Tap hearts to score points.';
+ document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
+ $('game').classList.add('active');$('shade').style.display='none';
+ spawnTimer=setInterval(spawnItem,650);
+ clockTimer=setInterval(()=>{
+  time--;$('time').textContent=time;
+  if(time<=0)endGame(false);
+ },1000);
+}
+function spawnItem(){
+ if(!gameActive)return;
+ const arena=$('arena'),el=document.createElement('button');
+ el.className='item';
+ const bomb=currentGame==='bomb'&&Math.random()<0.4;
+ el.textContent=bomb?'💣':'💗';
+ el.style.left=Math.random()*82+'%';
+ el.style.top=Math.random()*78+'%';
+ el.setAttribute('aria-label',bomb?'Bomb':'Heart');
+ el.onclick=()=>{
+  if(!gameActive)return;
+  if(bomb){endGame(true);return}
+  score++;$('score').textContent=score;el.remove();
+ };
+ arena.appendChild(el);
+ setTimeout(()=>el.remove(),1800);
+}
+function endGame(hitBomb){
+ if(!gameActive)return;
+ stopTimers();
+ $('overText').textContent=hitBomb
+  ?'Oops! You hit a bomb. Try again and save the hearts! 💗'
+  :'Time is up! You collected '+score+' hearts. Want another round? 💖';
+ document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
+ $('over').classList.add('active');
+}
+</script>
+</body>
+</html>
